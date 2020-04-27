@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lola studio</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        body,
+        html {
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            background: #fafafa;
+        }
+
+        model-viewer {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: -25vw;
+            background-color: unset;
+        }
+
+        .content {
+            position: absolute;
+            width: 50vw;
+            left: 50vw;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            z-index: 10;
+            box-sizing: border-box;
+            padding: 10vw;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        .logo {
+            width: 100%;
+        }
+
+        a {
+            font-weight: 600;
+            text-decoration: none;
+            color: #F8A5C2;
+            margin-top: 32px;
+            font-size: 18px;
+        }
+
+        @media (min-width: 768px) {
+            a {
+                font-size: 32px;
+            }
+        }
+
+        :root {
+            --progress-mask: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="center">
+            <img class="logo" src="logo.svg" alt="lola studio" />
+            <a href="mailto:hi@lolastud.io">hi@lolastud.io</a>
+        </div>
+    </div>
+    <model-viewer preload camera-orbit="150deg 155deg 150m" interaction-prompt="none" auto-rotate-delay=500
+        src="cat.glb" alt="gatinho" auto-rotate camera-controls style="background-color: unset;"
+        background-color="#fafafa">
+        <div slot="progress-bar"></div>
+        <div slot="interaction-prompt"></div>
+    </model-viewer>
+</body>
+
+</html>
