@@ -11,7 +11,7 @@ function onload(img) {
     setTimeout(() => {
         if (positions[row] && positions[row].length >= per_row) { row++; }
         if (!positions[row]) { positions.push([]) }
-        img.width = Math.floor((bounds.width - w_offset) / 3.5);
+        img.width = Math.floor((bounds.width - w_offset) / (3.5 + Math.random()));
         img.classList.add('__active');
         randomRotation(img);
 
@@ -24,11 +24,11 @@ function onload(img) {
 
         let left = w_offset + ((pos - 1) * Math.floor(bounds.width * .3));
         img.style.left = `${left}px`;
-        let top_offset = (heights[row - 1] || 0) + h_offset;
-        if (row === 0) top_offset += window.innerHeight / 4;
+        let top_offset = (heights[row - 1] * .95 || 0) + h_offset;
+        if (row === 0) top_offset += window.innerHeight / 5;
 
         if (!heights[row] || top_offset + img.height > heights[row]) heights[row] = top_offset + img.height;
-        img.style.top = `${top_offset + (Math.random() * heights[row] / 4)}px`;
+        img.style.top = `${top_offset + (Math.random() * heights[row] / 8)}px`;
         img.animate = true;
         img.addEventListener('mousedown', evt => { evt.preventDefault(); onImageDown(evt, img) });
         img.addEventListener('mousemove', evt => { evt.preventDefault(); });
