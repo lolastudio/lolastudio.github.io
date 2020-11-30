@@ -1,0 +1,140 @@
+* {
+    font-family: "Space Grotesk", sans-serif;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-stretch: expanded;
+    /* transform: scale(1.1, 1); */
+}
+
+.header {
+    width: 100%;
+    height: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 38px;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.header .__push-right {
+    margin-left: auto;
+}
+
+.hero {
+    width: 100%;
+    height: calc(100vh - 108px);
+    position: relative;
+    z-index: 20;
+}
+
+.hero .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 38px;
+}
+
+.hero .bottom .email {
+    margin-left: auto;
+}
+
+.hero .bottom .social a {
+    margin-right: 36px;
+}
+
+.hero .center {
+    width: 100%;
+    height: calc(100% - 108px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center h1 {
+    font-size: 96px;
+    width: 720px;
+    text-align: center;
+    letter-spacing: -5px;
+    line-height: 84px;
+}
+
+.logo {
+    height: 152px;
+    margin-top: 42px;
+}
+
+.padding-box {
+    width: 100%;
+    height: 250vh;
+}
+
+.studio {
+    z-index: 20;
+    background: #eeb5f9;
+    box-sizing: border-box;
+    padding: 45px;
+    position: relative;
+}
+
+.footer {
+    height: 25vh;
+    background: #9649cd;
+    z-index: 20;
+    position: relative;
+}
+
+.absolute-bg {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.absolute-bg img {
+    display: none;
+    opacity: 0.8;
+}
+
+.absolute-bg img.__active {
+    display: block;
+    position: absolute;
+    transition: 0.2s ease opacity;
+}
+
+.absolute-bg img:hover {
+    opacity: 1;
+    transition: 0.2s ease opacity;
+}
+
+.absolute-bg img.ease {
+    transition: 0.2s ease all;
+}
