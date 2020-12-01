@@ -118,7 +118,9 @@ a:hover {
     z-index: 20;
     background: #eeb5f9;
     box-sizing: border-box;
-    padding: 45px;
+    padding: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
     position: relative;
 }
 
@@ -127,6 +129,11 @@ a:hover {
     background: #9649cd;
     z-index: 20;
     position: relative;
+    margin-top: -16px;
+    padding: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    box-sizing: border-box;
 }
 
 .absolute-bg {
@@ -196,4 +203,31 @@ a:hover {
 .absolute-bg .draggable .description h4 {
     font-size: 32px;
     margin-bottom: 44px;
+}
+
+.studio .section {
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.studio .section .title {
+    width: 20%;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+}
+
+.studio .section .content {
+    display: flex;
+    min-width: 80%;
+    max-width: 80%;
+}
+
+.studio .section .content .mid {
+    margin-right: 3vw;
+}
+
+.__no-mb {
+    margin-bottom: 0 !important;
 }
