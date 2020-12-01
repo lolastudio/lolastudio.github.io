@@ -4,7 +4,6 @@ const colors = ['#efc967', '#dd523c', '#deb45f', '#7500f9', '#29abe2', '#73b24f'
 for (let i = 0; i < elements.length; i++) {
     let a = elements[i];
     a.addEventListener('mouseenter', (evt) => {
-        console.log(evt.target)
         if(!a.transformed) {
             a.transformed = true;
             a.original_content = a.querySelector('a').innerText;
@@ -19,7 +18,6 @@ for (let i = 0; i < elements.length; i++) {
     })
 
     a.addEventListener('mouseout', (evt) => {
-        console.log(evt);
         a.transformed = false;
         a.innerHTML = '<a>' + a.original_content + '</a>';
     })
@@ -28,3 +26,16 @@ for (let i = 0; i < elements.length; i++) {
 function getRandom() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
+
+document.querySelector('.js-studio').addEventListener('click', function(e) {
+    e.preventDefault();
+    let target = document.querySelector('#studio');
+    let headerOffset = 100;
+    let elementPosition = target.offsetTop;
+    let offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+});

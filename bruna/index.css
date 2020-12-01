@@ -21,6 +21,7 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -107,6 +108,13 @@ a:hover {
 .logo {
     height: 152px;
     margin-top: 42px;
+    transform: scale(1);
+    transition: .2s ease-out all;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: .1s ease-in all;
 }
 
 .padding-box {
