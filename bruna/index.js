@@ -7,32 +7,31 @@ let row = 0;
 let per_row = 3;
 let h_offset = 40;
 let w_offset = 100;
-function onload(img) {
+function onload(el, img) {
     setTimeout(() => {
         if (positions[row] && positions[row].length >= per_row) { row++; }
         if (!positions[row]) { positions.push([]) }
         img.width = Math.floor((bounds.width - w_offset) / (3.5 + Math.random()));
-        img.classList.add('__active');
-        randomRotation(img);
+        el.classList.add('__active');
+        randomRotation(el);
 
-        let pos = positions[row].push(img);
+        let pos = positions[row].push(el);
         if (row === 0 && pos === 2) {
             positions[row][pos - 1] = null;
-            pos = positions[row].push(img)
-            console.log(positions);
+            pos = positions[row].push(el);
         }
 
         let left = w_offset + ((pos - 1) * Math.floor(bounds.width * .3));
-        img.style.left = `${left}px`;
+        el.style.left = `${left}px`;
         let top_offset = (heights[row - 1] * .95 || 0) + h_offset;
         if (row === 0) top_offset += window.innerHeight / 5;
 
         if (!heights[row] || top_offset + img.height > heights[row]) heights[row] = top_offset + img.height;
-        img.style.top = `${top_offset + (Math.random() * heights[row] / 8)}px`;
-        img.animate = true;
-        img.addEventListener('mousedown', evt => { evt.preventDefault(); onImageDown(evt, img) });
-        img.addEventListener('mousemove', evt => { evt.preventDefault(); });
-        img.addEventListener('mouseup', evt => { evt.preventDefault(); onImageUp(evt, img) });
+        el.style.top = `${top_offset + (Math.random() * heights[row] / 8)}px`;
+        el.animate = true;
+        el.addEventListener('mousedown', evt => { evt.preventDefault(); onImageDown(evt, el) });
+        el.addEventListener('mousemove', evt => { evt.preventDefault(); });
+        el.addEventListener('mouseup', evt => { evt.preventDefault(); onImageUp(evt, el) });
     }, 0)
 }
 
@@ -76,18 +75,20 @@ document.onmouseup = () => {
     }, 250);
 }
 
-let images = Array.from(document.querySelectorAll('.js-bg img'));
+let images = Array.from(document.querySelectorAll('.js-bg .js-draggable'));
 images.sort((a, b) => {
     return Math.sin(Math.random()) - Math.cos(Math.random());
 })
 
 for (let i = 0; i < images.length; i++) {
-    if (images[i].complete) {
-        onload(images[i])
+    let img = images[i].querySelector('img');
+
+    if (img.complete) {
+        onload(images[i], img)
     }
     else {
-        images[i].onload = () => {
-            onload(images[i])
+        img.onload = () => {
+            onload(images[i], img)
         }
     }
 }
@@ -95,26 +96,26 @@ for (let i = 0; i < images.length; i++) {
 function animate() {
     window.requestAnimationFrame(delta => {
         for (let i = 0; i < images.length; i++) {
-            let img = images[i];
-            if (img.animate && !img.dragging) {
-                if (!img.direction) { images[i].direction = { x: Math.random(), y: Math.random(), force: Math.random() } }
+            let el = images[i];
+            let img = el.querySelector('img');
+            if (el.animate && !el.dragging) {
+                if (!el.direction) { images[i].direction = { x: Math.random(), y: Math.random(), force: Math.random() } }
 
-                let left = +(img.style.left.split('px').join(''));
-                left += Math.sin(delta / (2000 * img.direction.force)) * img.direction.x / 4;
-                img.style.left = `${left}px`;
+                let left = +(el.style.left.split('px').join(''));
+                left += Math.sin(delta / (2000 * el.direction.force)) * el.direction.x / 4;
+                el.style.left = `${left}px`;
 
-                let top = +(img.style.top.split('px').join(''));
-                top += Math.cos(delta / (1000 * img.direction.force)) * img.direction.y / 4;
-                img.style.top = `${top}px`;
+                let top = +(el.style.top.split('px').join(''));
+                top += Math.cos(delta / (1000 * el.direction.force)) * el.direction.y / 4;
+                el.style.top = `${top}px`;
 
-                img.rotation += Math.sin(delta / (2000 * img.direction.force)) / 20;
-                img.style.transform = `rotateZ(${img.rotation}deg)`
+                el.rotation += Math.sin(delta / (2000 * el.direction.force)) / 20;
+                el.style.transform = `rotateZ(${img.rotation}deg)`
             }
 
-            if (img.dragging) {
-                console.log(document.last_event.pageX)
-                img.style.left = `${document.last_event.pageX - (img.width / 2)}px`;
-                img.style.top = `${document.last_event.pageY - (img.height / 2)}px`;
+            if (el.dragging) {
+                el.style.left = `${document.last_event.pageX - (img.width / 2)}px`;
+                el.style.top = `${document.last_event.pageY - (img.height / 2)}px`;
             }
         }
         animate();
