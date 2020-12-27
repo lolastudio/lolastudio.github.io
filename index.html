@@ -55,8 +55,8 @@
 
 		.content {
 			position: absolute;
-			width: 50vw;
-			left: 50vw;
+			width: 70vw;
+			left: 30vw;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -82,7 +82,6 @@
 			font-weight: 600;
 			text-decoration: none;
 			color: var(--pink);
-			font-size: 32px;
 		}
 
 		svg {
@@ -95,12 +94,22 @@
 		}
 
 		.menu>* {
-			font-size: 1.2rem;
+			font-size: 2.4rem;
 			margin-right: 10px;
 		}
 
 		h1 img {
 			width: 25vw;
+		}
+
+		h1 {
+			margin: 0;
+			height: 20vw;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 10;
+			overflow: hidden;
 		}
 
 		@media (max-width: 768px) {
@@ -117,6 +126,17 @@
 			h1 img {
 				width: 80vw;
 			}
+
+			.menu {
+				position: fixed;
+				bottom: 5vh;
+			}
+
+			model-viewer {
+				left: 0;
+				top: 0;
+			}
+
 		}
 	</style>
 </head>
@@ -134,7 +154,8 @@
 			</nav>
 		</div>
 	</div>
-	<model-viewer data-js-focus-visible preload camera-orbit="80deg 90deg 10m" interaction-prompt="none" auto-rotate-delay="0" src="cat.glb" alt="low poly model of a cat in 3d rotating" auto-rotate camera-controls>
+	<model-viewer data-js-focus-visible preload camera-orbit="80deg 90deg 10m" interaction-prompt="none"
+		auto-rotate-delay="0" src="cat.glb" alt="low poly model of a cat in 3d rotating" auto-rotate camera-controls>
 		<div slot="progress-bar"></div>
 		<div slot="interaction-prompt"></div>
 	</model-viewer>
