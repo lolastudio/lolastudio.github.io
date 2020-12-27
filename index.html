@@ -48,7 +48,8 @@
 			width: 100vw;
 			height: 100vh;
 			position: absolute;
-			left: -25vw;
+			left: -18vw;
+			top: -3vh;
 			background-color: unset;
 		}
 
@@ -98,6 +99,10 @@
 			margin-right: 10px;
 		}
 
+		h1 img {
+			width: 25vw;
+		}
+
 		@media (max-width: 768px) {
 			.content {
 				width: 100%;
@@ -106,6 +111,11 @@
 
 			a {
 				font-size: 18px;
+				margin-right: 0;
+			}
+
+			h1 img {
+				width: 80vw;
 			}
 		}
 	</style>
@@ -118,23 +128,13 @@
 				<img class="lola studio" src="logo.svg" alt="lola studio" />
 			</h1>
 			<nav class="menu">
-<!-- 				<a title="lola studio's twitter" href="https://twitter.com/lolastud_io">
-					twitter
-				</a>
-				<span>·</span> -->
 				<a title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">
 					email
 				</a>
-				<!-- <span>·</span>
-        <a href="blog.lolastud.io">
-          blog
-        </a> -->
 			</nav>
 		</div>
 	</div>
-	<model-viewer data-js-focus-visible preload camera-orbit="160deg 90deg 10m" interaction-prompt="none"
-		auto-rotate-delay="500" src="cat.glb" alt="gatinho" auto-rotate camera-controls style="background-color: unset;"
-		background-color="#fafafa">
+	<model-viewer data-js-focus-visible preload camera-orbit="80deg 90deg 10m" interaction-prompt="none" auto-rotate-delay="0" src="cat.glb" alt="low poly model of a cat in 3d rotating" auto-rotate camera-controls>
 		<div slot="progress-bar"></div>
 		<div slot="interaction-prompt"></div>
 	</model-viewer>
