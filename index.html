@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>lola studio</title>
+	<meta name="description" content="Creative studio" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+	<script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "Organization",
+        "name": "lola studio",
+        "description": "Creative studio",
+        "url": "http://lolastud.io"
+      }
+    </script>
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+	<style>
+		:root {
+			--progress-mask: #fafafa;
+			--poster-color: transparent;
+			--pink: #f8a5c2;
+		}
+
+		* {
+			font-family: "Rubik", sans-serif;
+			color: var(--pink);
+		}
+
+		body,
+		html {
+			width: 100vw;
+			height: 100vh;
+			box-sizing: border-box;
+			margin: 0;
+			position: relative;
+			overflow: hidden;
+			background: #fafafa;
+			font-size: 16px;
+		}
+
+		model-viewer {
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			left: -25vw;
+			background-color: unset;
+		}
+
+		.content {
+			position: absolute;
+			width: 50vw;
+			left: 50vw;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			z-index: 10;
+			box-sizing: border-box;
+			padding: 10vw;
+		}
+
+		.center {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			max-width: 100%;
+		}
+
+		.logo {
+			width: 100%;
+		}
+
+		a {
+			font-weight: 600;
+			text-decoration: none;
+			color: var(--pink);
+			font-size: 32px;
+		}
+
+		svg {
+			fill: var(--pink);
+		}
+
+		.menu {
+			display: flex;
+			align-items: center;
+		}
+
+		.menu>* {
+			font-size: 1.2rem;
+			margin-right: 10px;
+		}
+
+		@media (max-width: 768px) {
+			.content {
+				width: 100%;
+				position: static;
+			}
+
+			a {
+				font-size: 18px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="content">
+		<div class="center">
+			<h1>
+				<img class="lola studio" src="logo.svg" alt="lola studio" />
+			</h1>
+			<nav class="menu">
+<!-- 				<a title="lola studio's twitter" href="https://twitter.com/lolastud_io">
+					twitter
+				</a>
+				<span>·</span> -->
+				<a title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">
+					email
+				</a>
+				<!-- <span>·</span>
+        <a href="blog.lolastud.io">
+          blog
+        </a> -->
+			</nav>
+		</div>
+	</div>
+	<model-viewer data-js-focus-visible preload camera-orbit="160deg 90deg 10m" interaction-prompt="none"
+		auto-rotate-delay="500" src="cat.glb" alt="gatinho" auto-rotate camera-controls style="background-color: unset;"
+		background-color="#fafafa">
+		<div slot="progress-bar"></div>
+		<div slot="interaction-prompt"></div>
+	</model-viewer>
+</body>
+
+</html>
