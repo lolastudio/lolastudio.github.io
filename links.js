@@ -8,7 +8,7 @@ for (let i = 0; i < elements.length; i++) {
             a.transformed = true;
             a.original_content = a.querySelector('a').innerText;
             let chars = a.original_content.split('');
-            let newhtml = '<a>'
+            let newhtml = '<a class="email" target="_blank" title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">'
             for (let c = 0; c < chars.length; c++) {
                 newhtml += `<b style="color: ${getRandom()}">${chars[c]}</b>`
             }
@@ -19,23 +19,10 @@ for (let i = 0; i < elements.length; i++) {
 
     a.addEventListener('mouseout', (evt) => {
         a.transformed = false;
-        a.innerHTML = '<a>' + a.original_content + '</a>';
+        a.innerHTML = '<a class="email" target="_blank" title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">' + a.original_content + '</a>';
     })
 }
 
 function getRandom() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
-
-document.querySelector('.js-studio').addEventListener('click', function(e) {
-    e.preventDefault();
-    let target = document.querySelector('#studio');
-    let headerOffset = 100;
-    let elementPosition = target.offsetTop;
-    let offsetPosition = elementPosition - headerOffset;
-
-    window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-    });
-});
