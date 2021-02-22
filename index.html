@@ -7,33 +7,23 @@
 	<title>lola studio</title>
 	<meta name="description" content="Creative studio" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 
 	<script type="application/ld+json">
       {
         "@context": "http://schema.org/",
         "@type": "Organization",
         "name": "lola studio",
-        "description": "Creative studio",
-        "url": "http://lolastud.io"
+        "description": "creative studio",
+        "url": "https://lolastudio.github.io"
       }
     </script>
-	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
-	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
 	<style>
-		:root {
-			--progress-mask: #fafafa;
-			--poster-color: transparent;
-			--pink: #f8a5c2;
-		}
-
-		* {
-			font-family: "Rubik", sans-serif;
-			color: var(--pink);
-		}
-
 		body,
-		html {
+		html,
+		.overlay,
+		.fake-body {
 			width: 100vw;
 			height: 100vh;
 			box-sizing: border-box;
@@ -42,132 +32,78 @@
 			overflow: hidden;
 			background: #fafafa;
 			font-size: 16px;
+			font-family: 'Space Mono', monospace;
 		}
 
-		model-viewer {
-			width: 100vw;
+		canvas {
+			image-rendering: -moz-crisp-edges;
+			image-rendering: -webkit-crisp-edges;
+			image-rendering: pixelated;
+			image-rendering: crisp-edges;
 			height: 100vh;
-			position: absolute;
-			left: -18vw;
-			top: -3vh;
-			background-color: unset;
 		}
 
-		.content {
-			position: absolute;
-			width: 70vw;
-			left: 30vw;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			z-index: 10;
-			box-sizing: border-box;
-			padding: 10vw;
+		.overlay,
+		.fake-body {
+			position: fixed;
+			top: 0;
+			left: 0;
 		}
 
-		.center {
+		.overlay {
+			background: rgba(250, 250, 250, .3);
+		}
+
+		.fake-body {
+			background: transparent;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
-			max-width: 100%;
+			padding: 20px;
 		}
 
 		.logo {
-			width: 100%;
+			width: 50vh;
+			margin-top: 5vh;
 		}
 
-		a {
-			font-weight: 600;
+		.email {
+			margin-top: 5vh;
+		}
+
+		.email a {
 			text-decoration: none;
-			color: var(--pink);
+			color: #000;
+			font-size: 3rem;
 		}
 
-		svg {
-			fill: var(--pink);
-		}
-
-		.menu {
-			display: flex;
-			align-items: center;
-			z-index: 20;
-		}
-
-		.menu>* {
-			font-size: 2.4rem;
-			margin-right: 10px;
-		}
-
-		h1 img {
-			width: 25vw;
-		}
-
-		h1 {
-			margin: 0;
-			height: 20vw;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			z-index: 10;
-			overflow: hidden;
-			-moz-user-select: none;
-			-webkit-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-		}
-
-		@media (max-width: 768px) {
-			.content {
-				width: 100%;
-				position: static;
+		@media only screen and (max-width: 600px) {
+			.email a {
+				font-size: 2rem;
 			}
-
-			a {
-				font-size: 18px;
-				margin-right: 0;
-			}
-
-			h1 {
-				overflow: visible;
-			}
-
-			h1 img {
-				width: 80vw;
-			}
-
-			.menu {
-				position: fixed;
-				bottom: 5vh;
-			}
-
-			model-viewer {
-				left: 0;
-				top: 0;
-			}
-
 		}
 	</style>
 </head>
 
 <body>
-	<div class="content">
-		<div class="center">
-			<h1>
-				<img class="lola studio" src="logo.svg" alt="lola studio" />
-			</h1>
-			<nav class="menu">
-				<a title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">
-					email
-				</a>
-			</nav>
+	<div class="overlay">
+	</div>
+	<div class="fake-body">
+		<img class="logo" src="logo.svg" />
+		<div class="email js-change">
+			<a target="_blank" title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">
+				hi@lolastud.io
+			</a>
 		</div>
 	</div>
-	<model-viewer data-js-focus-visible preload camera-orbit="80deg 90deg 10m" interaction-prompt="none"
-		auto-rotate-delay="0" src="cat.glb" alt="low poly model of a cat in 3d rotating" auto-rotate camera-controls>
-		<div slot="progress-bar"></div>
-		<div slot="interaction-prompt"></div>
-	</model-viewer>
 </body>
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="./Vector.js"></script>
+<script src="./Physics.js"></script>
+<script src="./Renderer.js"></script>
+<script src="./Random.js"></script>
+<script src="./index.js"></script>
+<script src="./links.js"></script>
 
 </html>
