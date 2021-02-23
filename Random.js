@@ -3,11 +3,14 @@ class Random {
         let types = [THREE.BoxGeometry, THREE.ConeGeometry, THREE.CylinderGeometry, THREE.DodecahedronGeometry, THREE.IcosahedronGeometry, THREE.OctahedronGeometry, THREE.SphereGeometry, THREE.TetrahedronGeometry, THREE.TorusKnotGeometry]
         this.geometry = new types[Math.floor(types.length * Math.random())];
 
-        const colors = new Uint8Array(1 + 2);
-
+        const colors = new Uint8Array(3);        
         for (let c = 0; c <= colors.length; c++) {
             colors[c] = (c / colors.length) * 256;
         }
+        colors[0] = 90;
+        colors[1] = 120;
+        colors[2] = 140;
+        console.log(colors);
 
         this.gradientMap = new THREE.DataTexture(colors, colors.length, 1, THREE.LuminanceFormat);
         this.gradientMap.minFilter = THREE.NearestFilter;
@@ -55,7 +58,7 @@ class Random {
     tick(delta) {
         this.object.rotation.y += this.speed * 20;
         this.object.rotation.x += this.speed * 20;
-        this.object.material.opacity += .025;
+        this.object.material.opacity < 1 ? this.object.material.opacity += .025 : null;
 
         this.position.applyForce({ x: this.direction.x / 10e3, y: this.direction.y / 10e3 });
         this.position.tick();

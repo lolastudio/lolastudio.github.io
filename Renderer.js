@@ -46,10 +46,11 @@ class Renderer {
         lights[1] = new THREE.DirectionalLight(0xffffff, 1, 0);
         lights[2] = new THREE.DirectionalLight(0xffffff, 1, 0);
 
-        lights[0].position.set(10, 10, 10);
-        lights[0].rotation.x = -45;
-        lights[0].rotation.z = -45;
-        lights[0].rotation.y = 60;
+        lights[0].position.set(0, 100, 100);
+        // lights[1].position.set(0, -1, 0);
+        // lights[0].rotation.x = -45;
+        // lights[0].rotation.z = -45;
+        // lights[0].rotation.y = 60;
 
         // lights[1].position.set(100, 200, 100);
         // lights[2].position.set(-100, -200, -100);
