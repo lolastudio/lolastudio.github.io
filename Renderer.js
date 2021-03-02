@@ -18,7 +18,6 @@ class Renderer {
     }
 
     dom() {
-        console.log(window.innerWidth);
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.camera.position.z = 5;

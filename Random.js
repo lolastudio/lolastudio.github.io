@@ -10,7 +10,6 @@ class Random {
         colors[0] = 90;
         colors[1] = 120;
         colors[2] = 140;
-        console.log(colors);
 
         this.gradientMap = new THREE.DataTexture(colors, colors.length, 1, THREE.LuminanceFormat);
         this.gradientMap.minFilter = THREE.NearestFilter;

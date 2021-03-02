@@ -85,9 +85,24 @@
 			font-size: 3rem;
 		}
 
+		.github {
+			margin-top: 1vh;
+		}
+
+		.github a {
+			text-decoration: none;
+			color: #000;
+			font-size: 3rem;
+		}
+
 		@media only screen and (max-width: 600px) {
-			.email a {
+			.email a,
+			.github a {
 				font-size: 2rem;
+			}
+
+			.github {
+				margin-top: 3vh;
 			}
 		}
 	</style>
@@ -102,6 +117,9 @@
 			<a target="_blank" title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">
 				hi@lolastud.io
 			</a>
+		</div>
+		<div class="github js-change">
+			<a target="_blank" title="github" href="https://github.com/lolastudio">github</a>
 		</div>
 	</div>
 </body>
