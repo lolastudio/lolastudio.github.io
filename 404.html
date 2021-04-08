@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>lola studio</title>
+	<meta name="description" content="Creative studio" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+	<script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "Organization",
+        "name": "lola studio",
+        "description": "creative studio",
+        "url": "https://lolastudio.github.io"
+      }
+    </script>
+	<style>
+		* {
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		body,
+		html,
+		.overlay,
+		.fake-body {
+			width: 100vw;
+			height: 100vh;
+			box-sizing: border-box;
+			margin: 0;
+			position: relative;
+			overflow: hidden;
+			background: #fafafa;
+			font-size: 16px;
+			font-family: 'Space Mono', monospace;
+		}
+
+		canvas {
+			image-rendering: -moz-crisp-edges;
+			image-rendering: -webkit-crisp-edges;
+			image-rendering: pixelated;
+			image-rendering: crisp-edges;
+			height: 100vh;
+		}
+
+		.overlay,
+		.fake-body {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+
+		.overlay {
+			background: rgba(250, 250, 250, .3);
+		}
+
+		.fake-body {
+			background: transparent;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			padding: 20px;
+		}
+
+		.logo {
+			width: 50vh;
+			margin-top: 5vh;
+			max-width: 80vw;
+		}
+
+		.email {
+			margin-top: 5vh;
+		}
+
+		.email a {
+			text-decoration: none;
+			color: #000;
+			font-size: 3rem;
+		}
+
+		.github {
+			margin-top: 1vh;
+		}
+
+		.github a {
+			text-decoration: none;
+			color: #000;
+			font-size: 3rem;
+		}
+
+		@media only screen and (max-width: 600px) {
+			.email a,
+			.github a {
+				font-size: 2rem;
+			}
+
+			.github {
+				margin-top: 3vh;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="overlay">
+	</div>
+	<div class="fake-body">
+		<img class="logo" src="logo.svg" />
+		<div class="email js-change">
+			<a target="_blank" title="mail to hi@lolastud.io" href="mailto:hi@lolastud.io">
+				hi@lolastud.io
+			</a>
+		</div>
+		<div class="github js-change">
+			<a target="_blank" title="github" href="https://github.com/lolastudio">github</a>
+		</div>
+	</div>
+</body>
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="./Vector.js"></script>
+<script src="./Physics.js"></script>
+<script src="./Renderer.js"></script>
+<script src="./Random.js"></script>
+<script src="./index.js"></script>
+<script src="./links.js"></script>
+
+</html>
